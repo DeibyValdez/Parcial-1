@@ -1,0 +1,6 @@
+# Eclipse
+bin/
+.settings/
+
+# macOS
+.DS_Store
