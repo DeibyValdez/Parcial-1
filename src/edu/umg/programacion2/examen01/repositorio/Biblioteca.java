@@ -118,8 +118,16 @@ public class Biblioteca {
 	 * - Si no hay coincidencias, retorna una lista vacía (no null).
 	 */
 	public List<Libro> buscarPorTituloParcial(String texto) {
-		// TODO: reemplazar esta línea por la lógica descrita arriba.
-		throw new UnsupportedOperationException("TODO: completar buscarPorTituloParcial() en Biblioteca");
+		List<Libro> resultado = new ArrayList<>();
+		String textoBuscado = texto.toLowerCase();
+
+		for (Libro libro : libros) {
+			if (libro.getTitulo().toLowerCase().contains(textoBuscado)) {
+				resultado.add(libro);
+			}
+		}
+
+		return resultado;
 	}
 
 	/**
