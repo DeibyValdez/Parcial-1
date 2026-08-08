@@ -191,8 +191,13 @@ public class Biblioteca {
 	 *   retorna null).
 	 */
 	public Libro prestarPrimerDisponibleDeCategoria(String categoria) throws LibroNoDisponibleException {
-		// TODO (opcional): reemplazar esta línea por la lógica descrita arriba.
-		throw new UnsupportedOperationException(
-				"TODO opcional: completar prestarPrimerDisponibleDeCategoria() en Biblioteca");
+		for (Libro libro : libros) {
+			if (libro.getCategoria().equals(categoria) && libro.estaDisponible()) {
+				libro.prestar();
+				return libro;
+			}
+		}
+
+		throw new LibroNoDisponibleException("No hay ningún libro disponible en la categoría " + categoria);
 	}
 }
