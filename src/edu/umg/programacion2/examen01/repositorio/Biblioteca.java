@@ -155,8 +155,21 @@ public class Biblioteca {
 	 *   excepción.
 	 */
 	public Libro libroMasAntiguoDeCategoria(String categoria) {
-		// TODO: reemplazar esta línea por la lógica descrita arriba.
-		throw new UnsupportedOperationException("TODO: completar libroMasAntiguoDeCategoria() en Biblioteca");
+		List<Libro> librosDeCategoria = new ArrayList<>();
+		for (Libro libro : libros) {
+			if (libro.getCategoria().equals(categoria)) {
+				librosDeCategoria.add(libro);
+			}
+		}
+
+		Libro masAntiguo = null;
+		for (Libro libro : librosDeCategoria) {
+			if (masAntiguo == null || libro.getAnioPublicacion() < masAntiguo.getAnioPublicacion()) {
+				masAntiguo = libro;
+			}
+		}
+
+		return masAntiguo;
 	}
 
 	/**
